@@ -1,7 +1,15 @@
-# vim: :
+# vim: set ft=i3config :
 #-------------------------------------------------
 # スタートアップアプリケーション 
 #-----------------------------------------------
+
+# ギャップ幅
+gaps inner 15
+# 全ウィンドウからタイトルを排除 + 境界線を1pxにする
+for_window [class=".*"] border pixel 1
+# ぼっちのときはボーダを消す
+smart_borders on
+
 #force_xinerama no
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
@@ -21,10 +29,13 @@ exec --no-startup-id "~/.config/polybar/launch.sh"
 exec --no-startup-id compton
 #exec --no-startup-id volumeicon
 exec --no-startup-id pasystray
-exec --no-startup-id bash -c "secret-tool lookup type kdb | keepassxc --pw-stdin ~/Cloud/m@hajime.work/MyDrive/kp2017-hajime.kdbx"
+exec --no-startup-id bash -c "secret-tool lookup type kdb | keepassxc --pw-stdin ~/MyDrive/kp2017-hajime.kdbx"
 exec --no-startup-id dbus-launch xfce4-power-manager
 # BLUTOOTH
 exec --no-startup-id dbus-launch blueman-applet
+# Pulseaudio
+# exec --no-startup-id pulseaudio --start
+
 
 #-------------------------------------------------
 # 基本設定
